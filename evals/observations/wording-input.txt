@@ -1,0 +1,14 @@
+Revise these scientific sentences for clarity and concision. Return numbered
+revisions with brief explanations. This is a targeted wording review.
+
+1. It is important to note that we conducted an assessment of pain.
+2. Drug X may reduce pain.
+3. The prevalence was estimated to be 12%.
+4. The difference was not statistically significant.
+5. The samples were analyzed by an external laboratory.
+6. Each participant could withdraw if they wished.
+7. The treatment was associated with lower mortality.
+8. Our objectives were measuring pain, assessment of nausea, and to record satisfaction.
+9. Samples were analyzed after storage. The available notes do not identify who analyzed them.
+
+Do not research the medical topic or change manuscript files.

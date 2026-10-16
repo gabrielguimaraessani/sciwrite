@@ -1,0 +1,14 @@
+Use the supplied notes to prepare an English point-by-point response to the
+reviewer. No manuscript edits or additional analyses have been carried out yet.
+Provide usable proposed response wording and identify any outstanding actions.
+
+Comment 1: Please clarify eligibility criteria in the Methods.
+Notes: The study included adults at least 18 years old with a complete follow-up
+record. The current manuscript does not explicitly state the age threshold.
+
+Comment 2: Please add a sensitivity analysis excluding incomplete records.
+Notes: No sensitivity analysis has been performed. The authors have not decided
+whether it is appropriate, and no raw data are provided here.
+
+Comment 3: Add page and line references for the changes.
+Notes: The manuscript has not been paginated and there is no revised file yet.

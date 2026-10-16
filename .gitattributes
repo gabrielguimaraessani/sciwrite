@@ -1,0 +1,2 @@
+# Preserve verbatim agent outputs, including Markdown hard-break whitespace.
+evals/observations/*-output.md whitespace=-blank-at-eol

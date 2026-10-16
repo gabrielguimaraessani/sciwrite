@@ -1,0 +1,41 @@
+Review this supplied research manuscript excerpt for writing quality, structure,
+and internal consistency. The target is an educated scientific audience; no
+journal has been selected. Provide a complete review of this excerpt in one batch.
+
+Abstract
+We enrolled 120 adults in an observational study of routine care. Exposure A was
+associated with less reported discomfort. Figure 2 shows the distribution. We
+conclude that Exposure A prevents discomfort in all adults.
+
+Introduction
+Discomfort matters to patients. Many investigators have written about discomfort.
+Our institution has collected routine-care data for several years.
+
+Methods
+We included 102 adults with complete follow-up. We defined two strata: the obese
+group and the non-obese group. We measured discomfort on a 0–10 numerical scale
+at the same follow-up visit. An external laboratory analyzed the samples.
+
+Results
+Table 1 summarizes the follow-up records. The obese group had 40 participants;
+the non-obese group had 62. The heavier group reported a mean score of 4.1 and
+the non-obese group reported 4.3. The subgroup with documented exposure duration
+comprised 50 participants. Exposure A was associated with lower discomfort in
+the supplied analysis, but the difference was not statistically significant.
+
+Table 1
+Total included: 102
+Obese group: 40
+Non-obese group: 62
+Documented exposure duration subgroup: 50
+
+Figure 2 caption
+Distribution of discomfort by study stratum.
+The figure itself is not included in the supplied material.
+
+Discussion
+We have demonstrated that Exposure A prevents discomfort. A review cited as
+Smith 2020 reports a prevalence of 15–62%, which supports our interpretation.
+No bibliography or source for that review is available in this excerpt.
+
+Please review available wording and structure only; no new analysis is requested.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SciWrite"
+  short_description: "Scientific writing review with evidence fidelity"
+  default_prompt: "Use $manuscript-writing-review to review the supplied scientific text for clarity, structure, and evidence fidelity."

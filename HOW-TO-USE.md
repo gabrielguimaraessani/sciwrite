@@ -1,174 +1,93 @@
-# How to Use the Manuscript Writing Review Skill with Claude Code
+# Using SciWrite
 
-## What This Is
+## Supply useful context, then proceed
 
-The file `SKILL.md` encodes a systematic writing-quality review process based on
-Dr. Kristin Sainani's "Writing in the Sciences" methodology. When placed in the
-right location, Claude Code will automatically discover and apply these review
-standards whenever you ask it to review your manuscript's writing.
+Provide text or notes, genre, intended audience, target message, and known length
+or journal requirements. Attach relevant tables, figures, captions, and sources.
+Optional missing context should not block useful review. The assistant should
+state assumptions and distinguish inaccessible material from reviewed material.
 
-Think of it as teaching Claude Code the editorial standards of a demanding
-journal reviewer — once, in a file — so that every review it performs on your
-manuscript follows the same rigorous protocol.
+## Install the complete skill
 
-## Setup: Where to Put the File
+Keep `SKILL.md`, `references/`, and `agents/` together. Use the installation in
+[README.md](README.md). For a project installation, copy the folder to
+`.claude/skills/manuscript-writing-review/` or the relevant environment's supported
+skills location. Do not copy only `SKILL.md` or paste only its body into an
+assistant that cannot retrieve its references. If using a project knowledge system,
+upload the referenced modules too and ensure they can actually be read.
 
-### Option A — Project-level skill (recommended)
+## Choose work mode independently of genre
 
-Place the skill inside the `.claude/skills/` directory of your manuscript project:
+Examples:
 
-```
-my-manuscript/
-├── .claude/
-│   └── skills/
-│       └── manuscript-review/
-│           └── SKILL.md          ← put it here
-├── draft.tex                     (or .md, .docx, etc.)
-├── figures/
-└── references.bib
+```text
+Review the writing in my manuscript. Use full-review and give the results in one batch.
 ```
 
-Commands to set this up:
-
-```bash
-cd /path/to/my-manuscript
-mkdir -p .claude/skills/manuscript-review
-cp /path/to/SKILL.md .claude/skills/manuscript-review/SKILL.md
+```text
+Review only this Discussion: answer to the question, interpretation, limitations,
+and supported implications.
 ```
 
-This makes the skill available whenever you run Claude Code from within this
-project directory.
-
-### Option B — Global skill (available for all your projects)
-
-Place it in your home directory's `.claude/skills/` folder:
-
-```bash
-mkdir -p ~/.claude/skills/manuscript-review
-cp /path/to/SKILL.md ~/.claude/skills/manuscript-review/SKILL.md
+```text
+Run targeted Pass 2 on these paragraphs. Preserve external actors and necessary passives.
 ```
 
-This makes the skill available in every project you open with Claude Code.
-
-## Using the Skill
-
-### Step 1: Open your manuscript project in VS Code
-
-Open your terminal in VS Code (`` Ctrl+` `` or **Terminal → New Terminal**).
-Navigate to your manuscript's root directory if you aren't already there.
-
-### Step 2: Launch Claude Code
-
-```bash
-claude
+```text
+Walk me through my Introduction paragraph by paragraph in interactive mode.
 ```
 
-Claude Code starts an interactive session in your terminal. It will automatically
-detect any skills in `.claude/skills/`.
-
-### Step 3: Ask for a review
-
-Here are example prompts, ordered from broadest to most targeted:
-
-**Full manuscript review:**
-
-```
-Review the writing quality of draft.tex
+```text
+Use structural-review for this narrative review. Propose a thematic organization.
 ```
 
-```
-Do a full writing review of my manuscript in the paper/ directory.
-Focus on sections 1 through 4.
-```
-
-**Single section:**
-
-```
-Review the writing in my Introduction (sections/introduction.tex)
+```text
+Use planning to organize my supplied study facts into an outline. List evidence gaps
+separately; do not invent preliminary results.
 ```
 
-**Targeted pass (one dimension only):**
+A narrative review is a genre, not a work mode. A request can combine that genre
+with targeted, structural, full, or interactive work. Protocols use planned-action
+language; editorials do not need empirical Methods and Results.
 
-```
-Check draft.tex for passive voice and smothered verbs
-```
+## Understand the output
 
-```
-Audit my Results section for keyword consistency — make sure group names
-and variable names match what I defined in Methods
-```
+Broad reviews begin with scope and the identified message, then useful findings.
+Each finding gives a real location, original text or specific structural issue,
+concrete proposal, explanation, severity, and unresolved dependency where relevant.
+Line numbers appear only when known. Identifying quoted openings can locate pasted
+paragraphs. Unavailable sources and images are reported as unverified/not assessed.
 
-```
-Strip the clutter from my Discussion. It's too wordy.
-```
+Before applying an edit, verify it preserves your meaning. Tell the assistant when
+a flagged technical noun or purposeful construction is appropriate. No revision
+quota applies: a clear sentence may remain unchanged.
 
-**Interactive, paragraph-by-paragraph editing:**
+## Applying changes and reviewer replies
 
-```
-Walk me through improving the writing in my Introduction,
-paragraph by paragraph
-```
+Ask explicitly to apply revisions to files if desired. A report alone should not
+overwrite your manuscript. Structural changes can move or combine supplied text;
+they must not manufacture data or fill scientific gaps with plausible facts.
 
-This mode is the most instructive: Claude shows you the original, a revised
-version, and explains every change before moving on.
+For reviewer responses, supply comments and the revised manuscript or a clear list
+of completed changes. If nothing has been changed, request proposed wording.
+The assistant should not claim an analysis or edit has been completed merely
+because a response sounds polished. Verify pagination before inserting locations.
 
-### Step 4: Review the output
+## Other academic genres
 
-Claude Code will produce a structured report (for full/section review) or
-walk you through changes interactively. Each finding includes:
+Use optional modules for lay summaries, essays, personal statements, grants, and
+recommendation letters. Supply actual evidence and examples. The skill must not
+invent personal experiences, rank, program fit, approvals, or preliminary data.
+Requested templates can have labeled fields; a purported final draft should put
+missing inputs in a separate note rather than fake citations or unresolved markers.
 
-- The original text
-- A concrete suggested revision
-- The rationale (which principle it violates)
-- A severity tag (CRITICAL / MAJOR / MINOR)
+## What is outside the automatic promise
 
-### Step 5: Apply changes (your choice)
+- Technical peer review of scientific validity or statistical suitability.
+- New analyses or independent systematic literature searches.
+- Certification of originality, research ethics compliance, or image authenticity.
+- Automatic bibliography-format compliance.
+- Actual visual inspection when images or vision tools are unavailable.
 
-Claude Code can also apply the edits directly to your files if you ask:
-
-```
-Apply the CRITICAL and MAJOR revisions to draft.tex
-```
-
-Or you can review them manually and incorporate the ones you agree with. The
-interactive mode is especially good for this — you approve each paragraph
-before Claude moves on.
-
-## Tips for Best Results
-
-**Tell Claude your target journal.** Different journals have different style
-conventions. For example:
-
-```
-Review my manuscript for writing quality. Target journal is the
-Journal of Fluid Mechanics. They prefer active voice throughout,
-including in Methods.
-```
-
-**Point to specific pain points.** If you know your Discussion is bloated but
-your Methods are clean, say so:
-
-```
-My Discussion is twice as long as it should be. Help me strip it down
-without losing any of the scientific arguments.
-```
-
-**Use interactive mode for learning.** If you want to internalize these
-principles (not just get a one-time cleanup), the paragraph-by-paragraph mode
-teaches you why each change matters.
-
-**Combine with your CLAUDE.md.** If your project already has a `CLAUDE.md` or
-`AGENTS.md` that describes your codebase and conventions, the skill adds a
-complementary layer — your CLAUDE.md handles the computational context, while
-this skill handles writing standards. They work together.
-
-## What This Skill Does NOT Do
-
-- It does **not** evaluate scientific content, methods, or results.
-- It does **not** check citation formatting (use a reference manager for that).
-- It does **not** restructure your argument or reorder sections.
-- It does **not** generate new text — it only revises existing prose.
-
-If you need a full technical peer review (methods, novelty, significance),
-that is a different task. This skill is purely about writing clarity and
-precision.
+These may require separate tasks, evidence, and tools. Editorial completeness
+checks can still flag relevant questions without claiming those tasks were done.
